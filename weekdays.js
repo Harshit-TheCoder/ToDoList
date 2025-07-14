@@ -4,7 +4,13 @@ function fetchColours(colours){
 }
 
 function changeBgColor(){
-    const colours = ['red', 'green', 'yellow', 'blue', 'aquamarine', 'teal', 'magenta', 'voilet', 'orangered', 'maroon', 'golden', 'silver', 'orange', 'darkgreen', 'darkblue'];
+    const colours = [
+    'lightcoral', 'lightgreen', 'lightyellow', 'lightblue', 'lightcyan',
+    'lightpink', 'lightsalmon', 'lightseagreen', 'lightgoldenrodyellow',
+    'lavender', 'mistyrose', 'honeydew', 'mintcream', 'aliceblue',
+    'beige', 'whitesmoke'
+];
+
     document.querySelector('body').style.backgroundColor = colours[fetchColours(colours)];
 }
 
