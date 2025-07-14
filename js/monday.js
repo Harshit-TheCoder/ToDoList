@@ -41,19 +41,19 @@ const addTaskToDOM = (taskObj) => {
     const li = document.createElement('div');
     li.className = 'todo-item row';
     li.innerHTML = `
-        <div class="col-3">
+        <div class="col-4">
             <h5>Name:</h5>
             <p>${taskObj.name}</p>
         </div>
-        <div class="col-3">
+        <div class="col-4">
             <h5>Timing:</h5>
             <p>${taskObj.time}</p>
         </div>
-        <div class="col-3">
+        <div class="col-4">
             <h5>Description:</h5>
             <p>${taskObj.description}</p>
         </div>
-        <div class="col-3">
+        <div class="col-4">
             <center><button class="delete-button btn btn-danger">Delete</button></center>
         </div>
     `;
