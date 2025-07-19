@@ -1,39 +1,37 @@
 function fetchColours(colours){
     let length = colours.length;
-    return Math.floor(Math.random()*length);
+    return Math.floor(Math.random() * length);
 }
 
 function changeBgColor(){
     const colours = [
-    'lightcoral', 'lightgreen', 'lightyellow', 'lightblue', 'lightcyan',
-    'lightpink', 'lightsalmon', 'lightseagreen', 'lightgoldenrodyellow',
-    'lavender', 'mistyrose', 'honeydew', 'mintcream', 'aliceblue',
-    'beige', 'whitesmoke'
-];
+        'lightcoral', 'lightgreen', 'lightyellow', 'lightblue', 'lightcyan',
+        'lightpink', 'lightsalmon', 'lightseagreen', 'lightgoldenrodyellow',
+        'lavender', 'mistyrose', 'honeydew', 'mintcream', 'aliceblue',
+        'beige', 'whitesmoke'
+    ];
 
     document.querySelector('body').style.backgroundColor = colours[fetchColours(colours)];
 }
 
 setInterval(changeBgColor, 2000);
 
-
-
-
-const todoList = document.querySelector('.todo-list');
-const addButton = document.querySelector('.todo-button');
-const taskInput = document.querySelector('.task-name');
-const timeInput = document.querySelector('.task-time');
-const descriptionInput = document.querySelector('.task-description');
+// tuesday To-Do
+const todoList = document.querySelector('.tuesday-todo-list');
+const addButton = document.querySelector('.tuesday-todo-button');
+const taskInput = document.querySelector('.tuesday-task-name');
+const timeInput = document.querySelector('.tuesday-task-time');
+const descriptionInput = document.querySelector('.tuesday-task-description');
 
 // Load tasks from localStorage
 const loadTasks = () => {
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const tasks = JSON.parse(localStorage.getItem('tuesday-tasks')) || [];
     tasks.forEach(addTaskToDOM);
 };
 
 // Save tasks to localStorage
 const saveTasks = (tasks) => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('tuesday-tasks', JSON.stringify(tasks));
 };
 
 // Add task to the DOM
@@ -54,10 +52,10 @@ const addTaskToDOM = (taskObj) => {
             <p>${taskObj.description}</p>
         </div>
         <div class="col-4">
-            <center><button class="delete-button btn btn-danger">Delete</button></center>
+            <center><button class="tuesday-delete-button btn btn-danger">Delete</button></center>
         </div>
     `;
-    const deleteButton = li.querySelector('.delete-button');
+    const deleteButton = li.querySelector('.tuesday-delete-button');
     deleteButton.addEventListener('click', () => deleteTask(taskObj, li));
     todoList.appendChild(li);
 };
@@ -70,7 +68,7 @@ const addTask = () => {
 
     if (name && time && description) {
         const taskObj = { name, time, description };
-        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        const tasks = JSON.parse(localStorage.getItem('tuesday-tasks')) || [];
         tasks.push(taskObj);
         saveTasks(tasks);
         addTaskToDOM(taskObj);
@@ -84,7 +82,7 @@ const addTask = () => {
 
 // Delete task
 const deleteTask = (taskObj, taskElement) => {
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    let tasks = JSON.parse(localStorage.getItem('tuesday-tasks')) || [];
     tasks = tasks.filter(
         (task) => task.name !== taskObj.name || task.time !== taskObj.time || task.description !== taskObj.description
     );

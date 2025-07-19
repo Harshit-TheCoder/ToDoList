@@ -19,15 +19,15 @@ setInterval(changeBgColor, 2000);
 
 
 
-const todoList = document.querySelector('.todo-list');
-const addButton = document.querySelector('.todo-button');
-const taskInput = document.querySelector('.task-name');
-const timeInput = document.querySelector('.task-time');
-const descriptionInput = document.querySelector('.task-description');
+const todoList = document.querySelector('.friday-todo-list');
+const addButton = document.querySelector('.friday-todo-button');
+const taskInput = document.querySelector('.friday-task-name');
+const timeInput = document.querySelector('.friday-task-time');
+const descriptionInput = document.querySelector('.friday-task-description');
 
 // Load tasks from localStorage
 const loadTasks = () => {
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const tasks = JSON.parse(localStorage.getItem('friday-tasks')) || [];
     tasks.forEach(addTaskToDOM);
 };
 
@@ -54,10 +54,10 @@ const addTaskToDOM = (taskObj) => {
             <p>${taskObj.description}</p>
         </div>
         <div class="col-4">
-            <center><button class="delete-button btn btn-danger">Delete</button></center>
+            <center><button class="friday-delete-button btn btn-danger">Delete</button></center>
         </div>
     `;
-    const deleteButton = li.querySelector('.delete-button');
+    const deleteButton = li.querySelector('.friday-delete-button');
     deleteButton.addEventListener('click', () => deleteTask(taskObj, li));
     todoList.appendChild(li);
 };
